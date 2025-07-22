@@ -73,7 +73,7 @@ Technical test with Vue.js + TypeScript and TailwindCSS, implements [DataTables]
 ## :inbox_tray: Installation
 
 1. Clone this repository.
-2. Run `npm install` on the folder this repository has been cloned to in order to install the necessary packages (*TypeScript*, *TailwindCSS* and *DataTables*).
+2. Run `npm install` on the folder this repository has been cloned to in order to install the necessary packages (*TypeScript*, *TailwindCSS*, *Pinia* and *DataTables*).
 
 ## :clipboard: Components
 
