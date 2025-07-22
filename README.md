@@ -5,7 +5,7 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
 ## :inbox_tray: Instalación
 
 1. Clonar este repositorio.
-2. Ejecutar `npm install` sobre el directorio donde se haya clonado este repositorio para instalar los paquetes necesarios (*TypeScript*, *TailwindCSS* y *DataTables*).
+2. Ejecutar `npm install` sobre el directorio donde se haya clonado este repositorio para instalar los paquetes necesarios (*TypeScript*, *TailwindCSS*, *Pinia* y *DataTables*).
 
 ## :clipboard: Componentes del proyecto
 
@@ -14,11 +14,11 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
     
 - OpenableStore
   - Controla el *«OpenableComponent»*, permitiendo asignarle contenido y manejar su estado.
-    
-- BannerComponent
+
+- BannerComponent **(se debe completar durante la prueba)**
   - Muestra una alerta flotante que puede alojar un texto.
     
-- BannerStore
+- BannerStore **(se debe completar durante la prueba)**
   - Controla el *«BannerComponent»*, permitiendo asignarle contenido y manejar su estado.  
 
 ## :dart: Objetivos
@@ -36,7 +36,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 
 - Se debe utilizar el componente *«OpenableComponent»* para mostrar, al menos, un formulario.
 - Se debe mostrar el estado de cada operación haciendo uso del componente *«BannerComponent»*, ya sea esta exitosa o fallida.
-- Cada operación exitosa debe verse reflejada instantáneamente en el componente donde se haya implementado *DataTables*.
+- Cada operación exitosa debe forzar instantáneamente la recarga del componente donde se haya implementado *DataTables*.
 
 > Se valorará positivamente, por orden de preferencia, las siguientes características:
 > 
