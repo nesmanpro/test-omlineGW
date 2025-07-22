@@ -56,7 +56,7 @@ Para compartir la solución a esta prueba técnica se pide que el directorio con
 ## :incoming_envelope: Contacto
 
 Diego Padilla **(preferente)**
-<br> Jefe de departamento
+<br> Jefe de Departamento
 <br> :mailbox: diego.omline@gmail.com
 
 Guerlain Bovas
