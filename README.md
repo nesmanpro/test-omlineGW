@@ -9,17 +9,19 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
 
 ## :clipboard: Componentes del proyecto
 
+**Todos deben completarse durante la prueba.**
+
 - OpenableComponent
   - Muestra un modal flotante que puede alojar contenido.
     
 - OpenableStore
   - Controla el *«OpenableComponent»*, permitiendo asignarle contenido y manejar su estado.
 
-- BannerComponent **(se debe completar durante la prueba)**
+- BannerComponent
   - Muestra una alerta flotante que puede alojar un texto.
     
-- BannerStore **(se debe completar durante la prueba)**
-  - Controla el *«BannerComponent»*, permitiendo asignarle contenido y manejar su estado.  
+- BannerStore
+  - Controla el *«BannerComponent»*, permitiendo asignarle contenido y manejar su estado.
 
 ## :dart: Objetivos
 
@@ -34,6 +36,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 
 #### Opcionales
 
+- Completar los componentes y las *«stores»* enumeradas previamente.
 - Se debe utilizar el componente *«OpenableComponent»* para mostrar, al menos, un formulario.
 - Se debe mostrar el estado de cada operación haciendo uso del componente *«BannerComponent»*, ya sea esta exitosa o fallida.
 - Cada operación exitosa debe forzar instantáneamente la recarga del componente donde se haya implementado *DataTables*.
@@ -49,7 +52,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 
 Para compartir la solución a esta prueba técnica se pide que el directorio con los archivos se suba a un repositorio público y se notifique al departamento responsable de la evaluación, adjuntando el enlace al repositorio donde se aloje la solución.
 
-> No es necesario ejecutar el comando _«build»_ sobre el proyecto. En caso de ejecutarse, **debe subirse al repositorio el directorio completo con la solución** a fin de poder evaluar cada archivo manualmente.
+> No es necesario ejecutar el comando `build` sobre el proyecto. En caso de ejecutarse, **debe subirse al repositorio el directorio completo con la solución**, no únicamente la carpeta generada por el comando `build` a fin de poder evaluar cada archivo manualmente.
 > 
 > Opcionalmente se puede subir el resultado a *GitHub Pages* para probar la solución en vivo, aunque **no se tendrá en cuenta en la evaluación final**.
 
@@ -76,6 +79,8 @@ Technical test with Vue.js + TypeScript and TailwindCSS, implements [DataTables]
 2. Run `npm install` on the folder this repository has been cloned to in order to install the necessary packages (*TypeScript*, *TailwindCSS*, *Pinia* and *DataTables*).
 
 ## :clipboard: Components
+
+**Must be completed during the test.**
 
 - OpenableComponent
   - Displays a floating modal that holds content.
