@@ -25,21 +25,21 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
  
 ## :floppy_disk: Rutas de la API
 
-**Las rutas ya están creadas y listas para usarlas durante la prueba.**
+Los campos del modelo `user` son `name`, `email` y `password`. **Las rutas ya están creadas y listas para ser usadas durante la prueba.**
 
-- `GET` /users
+- `GET` test.resabooking.fr/api/users
   - Devuelve todos los registros.
-- `POST` /users
+- `POST` test.resabooking.fr/api/users
   - Crea un nuevo registro.
 
-- `GET` /users/:userId
+- `GET` test.resabooking.fr/api/users/:userId
   - Devuelve el registro especificado mediante su ID.
-- `PATCH` /users/:userId
+- `PATCH` test.resabooking.fr/api/users/:userId
   - Modifica el registro especificado mediante su ID.
-- `DELETE` /users/:userId
+- `DELETE` test.resabooking.fr/api/users/:userId
   - Elimina el registro especificado mediante su ID.
 
-> La API recibe un cadena de texto JSON y devuelve un objeto JSON.
+> La API recibe un cadena de texto JSON y devuelve los registros en formato JSON.
 
 ## :dart: Objetivos
 
@@ -59,6 +59,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 - Se debe utilizar el componente *«OpenableComponent»* para mostrar, al menos, un formulario.
 - Se debe mostrar el estado de cada operación haciendo uso del componente *«BannerComponent»*, ya sea esta exitosa o fallida.
 - Cada operación exitosa debe forzar instantáneamente la recarga del componente donde se haya implementado *DataTables*.
+- Al momento de crear un usuario debe validarse su contraseña.
 
 > Se valorará positivamente, por orden de preferencia, las siguientes características:
 > 
@@ -118,21 +119,21 @@ Technical test with Vue.js + TypeScript and TailwindCSS, implements [DataTables]
  
 ## :floppy_disk: API routes
 
-**Routes are already created and ready to use throughout the test.**
+The fields of the `user` model are `name`, `email` and `password`. **Routes are already created and ready to use throughout the test.**
 
-- `GET` /users
+- `GET` test.resabooking.fr/api/users
   - Returns all entries.
-- `POST` /users
+- `POST` test.resabooking.fr/api/users
   - Creates a new entry.
 
-- `GET` /users/:userId
+- `GET` test.resabooking.fr/api/users/:userId
   - Returns the specified entry by its ID.
-- `PATCH` /users/:userId
+- `PATCH` test.resabooking.fr/api/users/:userId
   - Updates the specified entry by its ID.
-- `DELETE` /users/:userId
+- `DELETE` test.resabooking.fr/api/users/:userId
   - Deletes the specified entry by its ID.
 
-> The API accepts a _stringified_ JSON and returns a JSON object.
+> The API accepts a _stringified_ JSON and returns data in JSON format.
 
 ## :dart: Tasks
 
@@ -152,6 +153,7 @@ Additionally there must be one button that allows to individually remove any ent
 - Use the *"OpenableComponent"* to display at least one form.
 - Show the status of each CRUD operation using the *BannerComponent*, whether the operation is successful or not.
 - The table must be automatically refreshed whenever any CRUD operation is successful.
+- User's password must be validated before creating the user.
 
 ## :outbox_tray: Share the result
 
