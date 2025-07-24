@@ -27,16 +27,16 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
 
 Los campos del modelo `user` son `name`, `email` y `password`. **Las rutas ya están creadas y listas para ser usadas durante la prueba.**
 
-- `GET` test.resabooking.fr/api/users
+- `GET` https://test.resabooking.fr/api/users
   - Devuelve todos los registros.
-- `POST` test.resabooking.fr/api/users
+- `POST` https://test.resabooking.fr/api/users
   - Crea un nuevo registro.
 
-- `GET` test.resabooking.fr/api/users/:userId
+- `GET` https://test.resabooking.fr/api/users/:userId
   - Devuelve el registro especificado mediante su ID.
-- `PATCH` test.resabooking.fr/api/users/:userId
+- `PATCH` https://test.resabooking.fr/api/users/:userId
   - Modifica el registro especificado mediante su ID.
-- `DELETE` test.resabooking.fr/api/users/:userId
+- `DELETE` https://test.resabooking.fr/api/users/:userId
   - Elimina el registro especificado mediante su ID.
 
 > La API recibe un cadena de texto JSON y devuelve los registros en formato JSON.
@@ -59,7 +59,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 - Se debe utilizar el componente *«OpenableComponent»* para mostrar, al menos, un formulario.
 - Se debe mostrar el estado de cada operación haciendo uso del componente *«BannerComponent»*, ya sea esta exitosa o fallida.
 - Cada operación exitosa debe forzar instantáneamente la recarga del componente donde se haya implementado *DataTables*.
-- Al momento de crear un usuario debe validarse su contraseña.
+- Al momento de crear y actualizar un usuario debe validarse su contraseña en el formulario con un segundo campo donde repetir la contraseña.
 
 > Se valorará positivamente, por orden de preferencia, las siguientes características:
 > 
@@ -121,16 +121,16 @@ Technical test with Vue.js + TypeScript and TailwindCSS, implements [DataTables]
 
 The fields of the `user` model are `name`, `email` and `password`. **Routes are already created and ready to use throughout the test.**
 
-- `GET` test.resabooking.fr/api/users
+- `GET` https://test.resabooking.fr/api/users
   - Returns all entries.
-- `POST` test.resabooking.fr/api/users
+- `POST` https://test.resabooking.fr/api/users
   - Creates a new entry.
 
-- `GET` test.resabooking.fr/api/users/:userId
+- `GET` https://test.resabooking.fr/api/users/:userId
   - Returns the specified entry by its ID.
-- `PATCH` test.resabooking.fr/api/users/:userId
+- `PATCH` https://test.resabooking.fr/api/users/:userId
   - Updates the specified entry by its ID.
-- `DELETE` test.resabooking.fr/api/users/:userId
+- `DELETE` https://test.resabooking.fr/api/users/:userId
   - Deletes the specified entry by its ID.
 
 > The API accepts a _stringified_ JSON and returns data in JSON format.
@@ -153,7 +153,7 @@ Additionally there must be one button that allows to individually remove any ent
 - Use the *"OpenableComponent"* to display at least one form.
 - Show the status of each CRUD operation using the *BannerComponent*, whether the operation is successful or not.
 - The table must be automatically refreshed whenever any CRUD operation is successful.
-- User's password must be validated before creating the user.
+- User's password must be validated before creating and updating the user, comparing it to a second password field.
 
 ## :outbox_tray: Share the result
 
