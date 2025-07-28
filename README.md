@@ -11,11 +11,11 @@ Prueba técnica con Vue.js + TypeScript y TailwindCSS, implementando [DataTables
 
 **Todos deben completarse durante la prueba.**
 
-- OpenableComponent
+- SlideoutComponent
   - Muestra un modal flotante que puede alojar contenido.
     
-- OpenableStore
-  - Controla el *«OpenableComponent»*, permitiendo asignarle contenido y manejar su estado.
+- SlideoutStore
+  - Controla el *«SlideoutComponent»*, permitiendo asignarle contenido y manejar su estado.
 
 - BannerComponent
   - Muestra una alerta flotante que puede alojar un texto.
@@ -56,7 +56,7 @@ Adicionalmente debe existir un botón que permita eliminar individualmente los r
 #### Opcionales
 
 - Completar los componentes y las *«stores»* enumeradas previamente.
-- Se debe utilizar el componente *«OpenableComponent»* para mostrar, al menos, un formulario.
+- Se debe utilizar el componente *«SlideoutComponent»* para mostrar, al menos, un formulario.
 - Se debe mostrar el estado de cada operación haciendo uso del componente *«BannerComponent»*, ya sea esta exitosa o fallida.
 - Cada operación exitosa debe forzar instantáneamente la recarga del componente donde se haya implementado *DataTables*.
 - Al momento de crear y actualizar un usuario debe validarse su contraseña en el formulario con un segundo campo donde repetir la contraseña.
@@ -105,11 +105,11 @@ Technical test with Vue.js + TypeScript and TailwindCSS, implements [DataTables]
 
 **Must be completed during the test.**
 
-- OpenableComponent
+- SlideoutComponent
   - Displays a floating modal that holds content.
     
-- OpenableStore
-  - Manages the *OpenableComponent*, its content and its status.
+- SlideoutStore
+  - Manages the *SlideoutComponent*, its content and its status.
     
 - BannerComponent
   - Displays a floating alert that holds content.
@@ -150,9 +150,9 @@ Additionally there must be one button that allows to individually remove any ent
 #### Optional
 
 - Complete the *stores* and components mentioned previously.
-- Use the *"OpenableComponent"* to display at least one form.
-- Show the status of each CRUD operation using the *BannerComponent*, whether the operation is successful or not.
-- The table must be automatically refreshed whenever any CRUD operation is successful.
+- Use the *"SlideoutComponent"* to display at least one form.
+- Show the status of each CRUD operation using the *"BannerComponent"*, whether the operation is successful or not.
+- The table (using *DataTables*) must be automatically refreshed whenever any CRUD operation is successful.
 - User's password must be validated before creating and updating the user, comparing it to a second password field.
 
 ## :outbox_tray: Share the result
