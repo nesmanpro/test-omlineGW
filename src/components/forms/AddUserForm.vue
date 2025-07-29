@@ -23,9 +23,6 @@ function handleAddNewUser() {
   }
   userStore.createUser(newUser.value);
   slideoutStore.closeModal();
-
-
-
   bannerStore.showBanner('Usuario creado correctamente!🎉')
 
 }

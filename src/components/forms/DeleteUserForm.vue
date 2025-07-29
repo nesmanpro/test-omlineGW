@@ -2,10 +2,13 @@
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import { useSlideoutStore } from '@/stores/SlideoutStore';
+import { useBannerStore } from '@/stores/BannerStore';
 
 const userStore = useUserStore();
 const slideoutStore = useSlideoutStore()
 const userId = ref('');
+const bannerStore = useBannerStore();
+
 function handleDeleteUser() {
     if(userId.value.length < 1) {
         slideoutStore.closeModal();
@@ -16,6 +19,7 @@ function handleDeleteUser() {
         userStore.deleteUserById(id);
         userId.value = '';
         slideoutStore.closeModal();
+        bannerStore.showBanner('Usuario eliminado correctamente!🎉')
     }
 }
 </script>

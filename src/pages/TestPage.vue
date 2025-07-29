@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import BannerComponent from '@/components/BannerComponent.vue';
+import BannerComponent from '@/components/banner/BannerComponent.vue';
 import IconInicio from '@/components/icons/IconInicio.vue';
 import SlideoutComponent from '@/components/SlideoutComponent.vue';
 import UserTable from '@/components/UserTable.vue';
