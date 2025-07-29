@@ -5,13 +5,13 @@
         <span>Show Modal</span>
     </div>
 
-    <BannerMsg v-if="BannerStore.show" :msg="bannerMessage" />
+    <BannerModal v-if="BannerStore.show" :msg="BannerStore.message" />
 </template>
 
 <script setup lang="ts">
 import { useSlideoutStore } from '@/stores/SlideoutStore';
 import { useBannerStore } from '@/stores/BannerStore';
-import BannerMsg from './BannerMsg.vue';
+import BannerModal from './BannerModal.vue';
 import { ref } from 'vue';
 
 const slideoutStore = useSlideoutStore();

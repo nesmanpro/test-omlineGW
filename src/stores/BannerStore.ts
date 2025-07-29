@@ -7,12 +7,13 @@ export const useBannerStore = defineStore('banner', () => {
     const message = ref('')
     const type = ref<'success' | 'error'>('success')
 
+
     function showBanner(msg: string) {
         message.value = msg
         show.value = true
         setTimeout(() => {
             show.value = false
-        }, 2000)
+        }, 3000)
     }
 
     return { show, message, type, showBanner }

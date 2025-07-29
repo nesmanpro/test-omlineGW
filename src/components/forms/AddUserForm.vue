@@ -3,9 +3,12 @@ import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import { useSlideoutStore } from '@/stores/SlideoutStore';
 import type { User } from '@/types/userType';
+import { useBannerStore } from '@/stores/BannerStore';
 
 const userStore = useUserStore();
 const slideoutStore = useSlideoutStore();
+const bannerStore = useBannerStore();
+
 const newUser = ref<User>({
   id: 0,
   name: '',
@@ -20,6 +23,11 @@ function handleAddNewUser() {
   }
   userStore.createUser(newUser.value);
   slideoutStore.closeModal();
+
+
+
+  bannerStore.showBanner('Usuario creado correctamente!🎉')
+
 }
 </script>
 
