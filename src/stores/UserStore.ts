@@ -2,6 +2,7 @@
 import type { User } from '@/types/userType'
 import { defineStore } from 'pinia'
 import { useBannerStore } from './BannerStore';
+import { validateCreateUserFields, validateDeleteUserFields } from '@/utils/fieldValidation';
 
 const fields = [
     'id', 'name', 'email'
@@ -38,23 +39,12 @@ export const useUserStore = defineStore('users', {
         async createUser(user: { id: number, name: string; email: string, password: string, password2?: string }) {
 
             const banner = useBannerStore();
-            if (!user.name || !user.email || !user.password) {
-                banner.success = false;
-                banner.showBanner('Todos los campos son obligatorios.')
-                return false
-            }
+            const { valid, message } = validateCreateUserFields(user);
 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            if (!emailRegex.test(user.email)) {
+            if (!valid) {
                 banner.success = false;
-                banner.showBanner('Debe ingresar un email válido.');
-                return false
-            }
-
-            if (user.password2 !== user.password) {
-                banner.success = false;
-                banner.showBanner('Las contraseñas no coinciden.')
-                return false
+                banner.showBanner(message);
+                return false;
             }
 
             try {
@@ -80,18 +70,12 @@ export const useUserStore = defineStore('users', {
 
         async deleteUserById(id: number) {
             const banner = useBannerStore();
-            const userExist = this.users.filter(user => user.id === id);
+            const { valid, message } = validateDeleteUserFields(id);
 
-            if (isNaN(id)) {
+            if (!valid) {
                 banner.success = false;
-                banner.showBanner('El user ID debe ser numérico.');
-                return false
-            }
-
-            if (userExist.length < 1) {
-                banner.success = false;
-                banner.showBanner('No se encontró nungún usuario con ese id.');
-                return false
+                banner.showBanner(message);
+                return false;
             }
 
             try {
