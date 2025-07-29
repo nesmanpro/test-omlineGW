@@ -1,6 +1,7 @@
 
 import type { User } from '@/types/userType'
 import { defineStore } from 'pinia'
+import { useBannerStore } from './BannerStore';
 
 const fields = [
     'id', 'name', 'email'
@@ -27,22 +28,44 @@ export const useUserStore = defineStore('users', {
                 const data = await res.json()
                 this.users = data.users.map(reduceUser);
             } catch (err) {
-                this.error = 'Error al cargar usuarios'
+                this.error = 'Error al cargar usuarios';
                 console.error(err)
             } finally {
-                this.isLoading = false
+                this.isLoading = false;
             }
         },
 
         async createUser(user: { id: number, name: string; email: string, password: string }) {
+
+            const banner = useBannerStore();
+
+            if (!user.name || !user.email || !user.password) {
+                banner.success = false;
+                banner.showBanner('Todos los campos son obligatorios')
+                return false
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if (!emailRegex.test(user.email)) {
+                banner.success = false;
+                banner.showBanner('Debe ingresar un email válido');
+                return false
+            }
+
             try {
                 const res = await fetch(API_USER, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(user)
                 })
-                if (!res.ok) throw new Error('Error al crear usuario')
+                if (!res.ok) {
+                    banner.showBanner('Error al crear usuario');
+                    throw new Error('Error al crear usuario');
+                }
+
+                banner.success = true;
                 await this.fetchUsers()
+                banner.showBanner('Usuario creado correctamente')
                 return true
             } catch (err) {
                 console.error(err)

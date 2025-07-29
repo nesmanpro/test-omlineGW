@@ -17,14 +17,8 @@ const newUser = ref<User>({
 });
 
 function handleAddNewUser() {
-  if(!newUser.value.name || !newUser.value.email ||!newUser.value.password ){
-    slideoutStore.closeModal();
-    return
-  }
   userStore.createUser(newUser.value);
   slideoutStore.closeModal();
-  bannerStore.showBanner('Usuario creado correctamente!🎉')
-
 }
 </script>
 
