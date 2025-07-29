@@ -10,20 +10,22 @@ const slideoutStore = useSlideoutStore();
 
 <template>
     <Transition name="fade">
-        <div v-if="slideoutStore.show" class="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-70"></div>
+        <div 
+        @click="slideoutStore.closeModal"
+        v-if="slideoutStore.show" class="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-70"></div>
     </Transition>
 
     <Transition name="slide">
         <div 
-        v-if="slideoutStore.show" 
-        class="h-screen fixed top-0 right-0 min-w-[400px] max-w-[800px] bg-white shadow-md z-80 p-4">
-          <header class="flex justify-end">
-              <SlideoutCloseBtn />
-          </header>
-          <main >
-            <AddUserForm />
-            <DeleteUserForm />
-          </main>
+            v-if="slideoutStore.show"
+            class="h-screen fixed top-0 right-0 min-w-[400px] max-w-[800px] bg-white shadow-md z-80 p-4">
+            <header class="flex justify-end">
+                <SlideoutCloseBtn />
+            </header>
+            <main>
+                <AddUserForm />
+                <DeleteUserForm />
+            </main>
         </div>
     </Transition>
 </template>

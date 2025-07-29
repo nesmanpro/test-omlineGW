@@ -12,6 +12,7 @@ const newUser = ref<User>({
   name: '',
   email: '',
   password: '',
+  password2: '',
 });
 
 function handleAddNewUser() {
@@ -22,26 +23,22 @@ function handleAddNewUser() {
 
 <template>
   <div class="flex flex-col items-start gap-3 max-w-sm">
-    <h4 class="font-semibold text-sm">Add a new user</h4>
+    <h4 class="font-semibold text-md text-emerald-600">Add a new user</h4>
     <div class="flex flex-col items-start">
-      <!-- <label class="text-sm" for="name">Name*</label> -->
       <input v-model="newUser.name" class="border-b border-gray-300 px-2 py-1" type="text" placeholder="Name*" />
     </div>
     <div class="flex flex-col items-start">
-      <!-- <label class="text-sm" for="email">Email*</label> -->
       <input v-model="newUser.email" class="border-b border-gray-300 px-2 py-1" type="email" placeholder="Email*" />
     </div>
     <div class="flex flex-col items-start">
-      <!-- <label class="text-sm" for="password">Password*</label> -->
       <input v-model="newUser.password" class="border-b border-gray-300 px-2 py-1" type="password" placeholder="Password*" />
     </div>
     <div class="flex flex-col items-start">
-      <!-- <label class="text-sm" for="2password">Repeat Password*</label> -->
-      <input v-model="newUser.password" class="border-b border-gray-300 px-2 py-1" type="password" placeholder="Repeat Password*" />
+      <input v-model="newUser.password2" class="border-b border-gray-300 px-2 py-1" type="password" placeholder="Repeat Password*" />
     </div>
     <button 
             @click="handleAddNewUser"
-            class="!bg-emerald-800 px-6 py-1 w-fit text-white rounded-2xl hover:!bg-emerald-950 transition-all duration-300 ease-in-out cursor-pointer" 
+            class="!bg-emerald-700 px-6 py-1 w-fit text-white rounded-2xl hover:!bg-emerald-800 !transition-all !duration-300 !ease-in-out cursor-pointer" 
             >Add User</button>
   </div>
 </template>

@@ -16,7 +16,7 @@ export const useBannerStore = defineStore('banner', () => {
         setTimeout(() => {
             show.value = false;
             success.value = true;
-        }, 3000);
+        }, 2000);
     }
 
     return { show, message, success, showBanner }

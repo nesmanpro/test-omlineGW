@@ -35,20 +35,25 @@ export const useUserStore = defineStore('users', {
             }
         },
 
-        async createUser(user: { id: number, name: string; email: string, password: string }) {
+        async createUser(user: { id: number, name: string; email: string, password: string, password2?: string }) {
 
             const banner = useBannerStore();
-
             if (!user.name || !user.email || !user.password) {
                 banner.success = false;
-                banner.showBanner('Todos los campos son obligatorios')
+                banner.showBanner('Todos los campos son obligatorios.')
                 return false
             }
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if (!emailRegex.test(user.email)) {
                 banner.success = false;
-                banner.showBanner('Debe ingresar un email válido');
+                banner.showBanner('Debe ingresar un email válido.');
+                return false
+            }
+
+            if (user.password2 !== user.password) {
+                banner.success = false;
+                banner.showBanner('Las contraseñas no coinciden.')
                 return false
             }
 
@@ -59,31 +64,49 @@ export const useUserStore = defineStore('users', {
                     body: JSON.stringify(user)
                 })
                 if (!res.ok) {
-                    banner.showBanner('Error al crear usuario');
-                    throw new Error('Error al crear usuario');
+                    banner.showBanner('Error al crear usuario.');
+                    throw new Error('Error al crear usuario.');
                 }
 
-                banner.success = true;
                 await this.fetchUsers()
-                banner.showBanner('Usuario creado correctamente')
-                return true
             } catch (err) {
                 console.error(err)
                 return false
+            } finally {
+                banner.success = true;
+                banner.showBanner('Usuario creado correctamente.')
             }
         },
 
         async deleteUserById(id: number) {
+            const banner = useBannerStore();
+            const userExist = this.users.filter(user => user.id === id);
+
+            if (isNaN(id)) {
+                banner.success = false;
+                banner.showBanner('El user ID debe ser numérico.');
+                return false
+            }
+
+            if (userExist.length < 1) {
+                banner.success = false;
+                banner.showBanner('No se encontró nungún usuario con ese id.');
+                return false
+            }
+
             try {
                 const res = await fetch(`${API_USER}/${id}`, {
                     method: 'DELETE'
                 })
-                if (!res.ok) throw new Error('Error al eliminar usuario')
+                if (!res.ok) throw new Error('Error al eliminar usuario.')
                 await this.fetchUsers()
                 return true
             } catch (err) {
                 console.error(err)
                 return false
+            } finally {
+                banner.success = true;
+                banner.showBanner('Usuario eliminado correctamente!🎉');
             }
         }
     }
