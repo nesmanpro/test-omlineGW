@@ -13,6 +13,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --bg-light-grey: #e7e7e7;
 }
 
 body {
@@ -42,6 +44,7 @@ button:hover {
 
 .card {
   padding: .5em;
+  width: 100%;
 }
 
 #app {
@@ -51,12 +54,12 @@ button:hover {
   text-align: center;
 }
 
-
 .dt-layout-row:not(.dt-layout-table) {
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
   background-color: var(--bg-light-grey);
+
 }
 
 .dt-layout-row {
@@ -73,7 +76,7 @@ button:hover {
 }
 
 #dt-search-0 {
-  background: rgb(239, 239, 239);
+  background: rgb(255, 255, 255);
   border-radius: 5px;
   margin-left: .6rem;
 
