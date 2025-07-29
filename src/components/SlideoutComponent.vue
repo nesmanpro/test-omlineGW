@@ -3,6 +3,7 @@ import { useSlideoutStore } from '@/stores/SlideoutStore';
 import SlideoutCloseBtn from './SlideoutCloseBtn.vue';
 import AddUserForm from './forms/AddUserForm.vue';
 import DeleteUserForm from './forms/DeleteUserForm.vue';
+import UpdateUserForm from './forms/UpdateUserForm.vue';
 
 const slideoutStore = useSlideoutStore();
 
@@ -18,13 +19,14 @@ const slideoutStore = useSlideoutStore();
     <Transition name="slide">
         <div 
             v-if="slideoutStore.show"
-            class="h-screen fixed top-0 right-0 min-w-[400px] max-w-[800px] bg-white shadow-md z-80 p-4">
+            class="h-screen fixed top-0 right-0 min-w-[400px] max-w-[800px] bg-white shadow-md z-80 p-4 overflow-y-scroll">
             <header class="flex justify-end">
                 <SlideoutCloseBtn />
             </header>
-            <main>
+            <main class="flex flex-col gap-2">
                 <AddUserForm />
                 <DeleteUserForm />
+                <UpdateUserForm />
             </main>
         </div>
     </Transition>

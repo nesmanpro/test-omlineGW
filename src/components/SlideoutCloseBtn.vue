@@ -8,7 +8,7 @@ const slideoutStore = useSlideoutStore();
 <template>
     <button
     @click="slideoutStore.closeModal"
-    class="cursor-pointer">
+    class="cursor-pointer !bg-transparent !transition-all !duration-300 !ease-in-out hover:scale-115 hover:rotate-90">
         <IconClose />
     </button>
     

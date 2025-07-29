@@ -2,7 +2,7 @@
 import type { User } from '@/types/userType'
 import { defineStore } from 'pinia'
 import { useBannerStore } from './BannerStore';
-import { validateCreateUserFields, validateDeleteUserFields } from '@/utils/fieldValidation';
+import { validateCreateUserFields, validateDeleteUserFields, validateUpdateUserFields } from '@/utils/fieldValidation';
 
 const fields = [
     'id', 'name', 'email'
@@ -61,6 +61,7 @@ export const useUserStore = defineStore('users', {
                 await this.fetchUsers()
             } catch (err) {
                 console.error(err)
+                banner.showBanner('Hubo un problema al crear el usuario.')
                 return false
             } finally {
                 banner.success = true;
@@ -87,10 +88,51 @@ export const useUserStore = defineStore('users', {
                 return true
             } catch (err) {
                 console.error(err)
+                banner.showBanner('Hubo un error al eliminar el usuario.')
                 return false
             } finally {
                 banner.success = true;
                 banner.showBanner('Usuario eliminado correctamente!🎉');
+            }
+        },
+
+        async updateUser(user: User) {
+            const banner = useBannerStore();
+            const { id } = user;
+
+            const { valid, message } = validateUpdateUserFields(user);
+
+            if (!valid) {
+                banner.success = false;
+                banner.showBanner(message);
+                return false;
+            }
+
+            try {
+                const body: Record<string, string> = {};
+                if (user.name && user.name.trim() !== '') {
+                    body.name = user.name.trim();
+                }
+                if (user.email && user.email.trim() !== '') {
+                    body.email = user.email.trim();
+                }
+
+                const res = await fetch(`${API_USER}/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+
+                if (!res.ok) throw new Error('Error al actualizar el usuario.');
+                await this.fetchUsers();
+            } catch (err) {
+                console.error(err);
+                banner.success = false;
+                banner.showBanner('Hubo un error al actualizar el usuario.');
+                return false;
+            } finally {
+                banner.success = true;
+                banner.showBanner('Usuario actualizado correctamente! 🎉');
             }
         }
     }

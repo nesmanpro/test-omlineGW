@@ -35,3 +35,25 @@ export function validateDeleteUserFields(userId: number): { valid: boolean; mess
 
     return { valid: true, message: '' };
 }
+
+export function validateUpdateUserFields(user: User): { valid: boolean; message: string } {
+    const userStore = useUserStore();
+
+
+    if (!user.id || isNaN(user.id)) {
+        return { valid: false, message: 'El ID de usuario debe ser un número válido.' };
+    }
+
+    const hasName = user.name && user.name.trim() !== '';
+    const hasEmail = user.email && user.email.trim() !== '';
+    if (!hasName && !hasEmail) {
+        return { valid: false, message: 'Debe especificar al menos un nombre o un email.' };
+    }
+
+    const userExists = userStore.users.some(u => u.id === user.id);
+    if (!userExists) {
+        return { valid: false, message: 'No se encontró ningún usuario con ese ID.' };
+    }
+
+    return { valid: true, message: '' };
+}

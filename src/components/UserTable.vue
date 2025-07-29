@@ -4,6 +4,7 @@ import DataTablesCore from 'datatables.net-dt'
 import { useUserStore } from '@/stores/UserStore'
 import { storeToRefs } from 'pinia'
 import { onMounted } from 'vue'
+import {motion}  from 'motion-v';
 
 DataTable.use(DataTablesCore)
 
@@ -23,15 +24,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="font-bold text-xl mb-4">User Table</h1>
+  
 
   <div class="card">
-    <div v-if="isLoading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
-    <DataTable
-      v-else-if="users.length"
-      :data="users"
-      :columns="columns"
-    />
+    <div 
+    v-if="isLoading">Loading...</div>
+    <div 
+    v-else-if="error">{{ error }}</div>
+    <motion.div
+    v-else-if="users.length"
+    :initial="{ opacity: 0, scale: .9, y:-5 }"
+    :animate="{ 
+      opacity: 1, 
+      scale: 1,
+      y:0
+    }"
+    :transition="{ duration: 0.5, ease: 'backInOut' }"
+    >
+    <h1 class="font-bold text-3xl mb-4">User Table</h1>
+      <DataTable
+        :data="users"
+        :columns="columns"
+      />
+    </motion.div>
   </div>
 </template>
