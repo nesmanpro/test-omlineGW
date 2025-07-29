@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { useSlideoutStore } from '@/stores/SlideoutStore';
+import ModalCloseBtn from './ModalCloseBtn.vue';
+import { useUserStore } from '@/stores/UserStore';
+import type { User } from '@/types/userType';
+
+const slideoutStore = useSlideoutStore();
+const userStore = useUserStore();
+let newUser = {} as User;
+
+function handleAddNewUser(){
+    newUser.id = userStore.users.length + 1;
+  userStore.createUser(newUser);
+  slideoutStore.closeModal();
+}
+</script>
+
 <template>
     <Transition name="fade">
         <div v-if="slideoutStore.show" class="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-70"></div>
@@ -18,23 +35,38 @@
         class="text-sm"
         for="name">Name*</label>
         <input
+        v-model="newUser.name" 
         name="name"
         class="border-1 border-gray-300 px-2 py-1" 
         type="text" 
-        placeholder="Enter a title..">
+        placeholder="Name">
       </div>
       <div class="flex flex-col items-start">
         <label 
         class="text-sm"
         for="email">Email*</label>
         <input 
+        v-model="newUser.email" 
         class="border-1 border-gray-300 px-2 py-1" 
         name="email" 
         type="email"
-        placeholder="Enter Description.."
+        placeholder="Email"
+        ></input>
+      </div>
+      <div class="flex flex-col items-start">
+        <label 
+        class="text-sm"
+        for="password">Password*</label>
+        <input 
+        v-model="newUser.password" 
+        class="border-1 border-gray-300 px-2 py-1" 
+        name="password" 
+        type="password"
+        placeholder="Password"
         ></input>
       </div>
       <button 
+      @click="handleAddNewUser"
       class="!bg-emerald-800 px-6 py-1 w-fit text-white rounded-2xl hover:!bg-emerald-950 transition-all duration-300 ease-in-out cursor-pointer" 
       >Add User</button>
     </div>
@@ -61,12 +93,7 @@
     </Transition>
 </template>
 
-<script setup lang="ts">
-import { useSlideoutStore } from '@/stores/SlideoutStore';
-import ModalCloseBtn from './ModalCloseBtn.vue';
 
-const slideoutStore = useSlideoutStore();
-</script>
 
 <style scoped>
 .fade-enter-active,

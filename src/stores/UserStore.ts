@@ -34,7 +34,7 @@ export const useUserStore = defineStore('users', {
             }
         },
 
-        async createUser(user: { name: string; email: string }) {
+        async createUser(user: { id: number, name: string; email: string, password: string }) {
             try {
                 const res = await fetch(API_USER, {
                     method: 'POST',
