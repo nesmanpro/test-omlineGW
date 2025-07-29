@@ -50,7 +50,7 @@ export const useUserStore = defineStore('users', {
             }
         },
 
-        async deleteUserById(id: string) {
+        async deleteUserById(id: number) {
             try {
                 const res = await fetch(`${API_USER}/${id}`, {
                     method: 'DELETE'
