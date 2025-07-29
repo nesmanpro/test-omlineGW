@@ -28,13 +28,13 @@ function handleDeleteUser() {
     <div class="flex flex-col items-start gap-3 max-w-sm mt-10 border-t-1 border-emerald-700/20 pt-10">
         <h4 class="font-semibold text-sm">Delete user </h4>
         <div class="flex flex-col items-start">
-            <label class="text-sm" for="name">Id*</label>
+            <!-- <label class="text-sm" for="name">Id*</label> -->
             <input
             v-model="userId"
             name="name" 
-            class="border-1 border-gray-300 px-2 py-1" 
+            class="border-b border-gray-300 px-2 py-1" 
             type="text" 
-            placeholder="Enter id...">
+            placeholder="User id*">
         </div>
         <button
         @click="handleDeleteUser"
