@@ -1,18 +1,11 @@
 <script setup lang="ts">
 import { useSlideoutStore } from '@/stores/SlideoutStore';
-import ModalCloseBtn from './ModalCloseBtn.vue';
-import { useUserStore } from '@/stores/UserStore';
-import type { User } from '@/types/userType';
+import SlideoutCloseBtn from './SlideoutCloseBtn.vue';
+import AddUserForm from './forms/AddUserForm.vue';
+import DeleteUserForm from './forms/DeleteUserForm.vue';
 
 const slideoutStore = useSlideoutStore();
-const userStore = useUserStore();
-let newUser = {} as User;
 
-function handleAddNewUser(){
-    newUser.id = userStore.users.length + 1;
-  userStore.createUser(newUser);
-  slideoutStore.closeModal();
-}
 </script>
 
 <template>
@@ -24,71 +17,13 @@ function handleAddNewUser(){
         <div 
         v-if="slideoutStore.show" 
         class="h-screen fixed top-0 right-0 min-w-[400px] max-w-[800px] bg-white shadow-md z-80 p-4">
-        <header class="flex justify-end">
-            <ModalCloseBtn />
-        </header>
-        <main >
-            <div class="flex flex-col items-start gap-3 max-w-sm">
-      <h4 class="font-semibold text-sm">Add a new user </h4>
-      <div class="flex flex-col items-start">
-        <label 
-        class="text-sm"
-        for="name">Name*</label>
-        <input
-        v-model="newUser.name" 
-        name="name"
-        class="border-1 border-gray-300 px-2 py-1" 
-        type="text" 
-        placeholder="Name">
-      </div>
-      <div class="flex flex-col items-start">
-        <label 
-        class="text-sm"
-        for="email">Email*</label>
-        <input 
-        v-model="newUser.email" 
-        class="border-1 border-gray-300 px-2 py-1" 
-        name="email" 
-        type="email"
-        placeholder="Email"
-        ></input>
-      </div>
-      <div class="flex flex-col items-start">
-        <label 
-        class="text-sm"
-        for="password">Password*</label>
-        <input 
-        v-model="newUser.password" 
-        class="border-1 border-gray-300 px-2 py-1" 
-        name="password" 
-        type="password"
-        placeholder="Password"
-        ></input>
-      </div>
-      <button 
-      @click="handleAddNewUser"
-      class="!bg-emerald-800 px-6 py-1 w-fit text-white rounded-2xl hover:!bg-emerald-950 transition-all duration-300 ease-in-out cursor-pointer" 
-      >Add User</button>
-    </div>
-    <div class="flex flex-col items-start gap-3 max-w-sm mt-10 border-t-1 border-emerald-700/20 pt-10">
-      <h4 class="font-semibold text-sm">Delete user </h4>
-      <div class="flex flex-col items-start">
-        <label 
-        class="text-sm"
-        for="name">Id*</label>
-        <input
-        name="name"
-        class="border-1 border-gray-300 px-2 py-1" 
-        type="text" 
-        placeholder="Enter id...">
-      </div>
-      
-      <button 
-      class="!bg-emerald-800 px-6 py-1 w-fit text-white rounded-2xl hover:!bg-emerald-950 transition-all duration-300 ease-in-out cursor-pointer" 
-      >Delete this User</button>
-    </div>
-    
-        </main>
+          <header class="flex justify-end">
+              <SlideoutCloseBtn />
+          </header>
+          <main >
+            <AddUserForm />
+            <DeleteUserForm />
+          </main>
         </div>
     </Transition>
 </template>
