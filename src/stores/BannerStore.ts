@@ -1,11 +1,19 @@
-import { defineStore } from 'pinia';
+
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const useBannerStore = defineStore('banner', () => {
-    /*
-     * Crea los atributos y los métodos que consideres necesarios 
-     * para mostrar y ocultar el componente `BannerComponent`, 
-     * cambiar su color y modificar su texto.
-     * 
-     * De ser posible, añade comentarios JSDoc.
-     */
-});
+    const show = ref(false)
+    const message = ref('')
+    const type = ref<'success' | 'error'>('success')
+
+    function showBanner(msg: string) {
+        message.value = msg
+        show.value = true
+        setTimeout(() => {
+            show.value = false
+        }, 2000)
+    }
+
+    return { show, message, type, showBanner }
+})
