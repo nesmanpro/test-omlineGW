@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import DataTable from 'datatables.net-vue3'
 import DataTablesCore from 'datatables.net-dt'
-import { useUserStore } from '@/stores/UseUseStore'
+import { useUserStore } from '@/stores/UserStore'
 import { storeToRefs } from 'pinia'
 import { onMounted } from 'vue'
 
 DataTable.use(DataTablesCore)
-
-
 
 const columns = [
   { data: 'id', title: 'ID' },
