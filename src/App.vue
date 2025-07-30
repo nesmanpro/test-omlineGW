@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue';
+import Footer from './components/Footer.vue';
 
 </script>
 <template>
     
     <NavBar />
 
-    <main class="w-full max-w-screen min-h-screen flex flex-col gap-8 items-center justify-center px-8 sm:px-12 md:px-22 ">
+    <main class="w-full max-w-screen flex flex-col gap-8 items-center justify-center px-8 sm:px-12 md:px-22 ">
         <section class="flex flex-col justify-center md:justify-start w-full h-min gap-y-8">
             
         <RouterView  />
         </section>
     </main>
+    <Footer />
     
 
 </template>

@@ -28,6 +28,6 @@ onMounted(() => {
     
     :transition="{ duration: 0.8, ease: 'easeInOut' }"
   >
-    Welcome to my test!
+    Loading...
   </motion.div>
 </template>

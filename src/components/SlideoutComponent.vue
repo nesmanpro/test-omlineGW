@@ -23,7 +23,7 @@ const slideoutStore = useSlideoutStore();
             <header class="flex justify-end">
                 <SlideoutCloseBtn />
             </header>
-            <main class="flex flex-col gap-2">
+            <main class="flex flex-col gap-2 pt-5">
                 <AddUserForm />
                 <DeleteUserForm />
                 <UpdateUserForm />

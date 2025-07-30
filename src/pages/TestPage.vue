@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-screen flex flex-col items-center justify-center">
+    <main class="w-full flex flex-col items-center justify-center">
         <UserTable />
     </main>
 

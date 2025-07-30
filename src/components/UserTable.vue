@@ -41,7 +41,7 @@ onMounted(() => {
     }"
     :transition="{ duration: 0.5, ease: 'backInOut' }"
     >
-    <h1 class="font-bold text-3xl mb-4">User Table</h1>
+    <h1 class="font-bold text-emerald-700 text-3xl mb-4">User Table</h1>
       <DataTable
         :data="users"
         :columns="columns"
