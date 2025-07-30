@@ -19,11 +19,11 @@ onMounted(() => {
 
     <main class="w-full flex flex-col gap-8 items-center justify-center py-26 ">
         <section class="grid grid-cols-12 justify-center w-full h-min gap-y-3">
-          <div class="col-span-4 text-left">
-            <h2 class="text-emerald-600 font-semibold text-6xl">
-               Technical test
+          <div class="flex flex-col gap-5 col-span-4 text-left">
+            <h2 class="text-emerald-600 font-bold leading-10 text-6xl">
+               Technical assessment
             </h2>
-            <h5 class="text-emerald-800/50 font-semibold text-xl">(Click on Test 😊)</h5>
+            <h5 class="text-emerald-800 font-semibold text-xl">(Click on Test 😊)</h5>
           </div>
         </section>
     </main>
