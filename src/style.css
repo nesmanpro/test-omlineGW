@@ -69,9 +69,6 @@ body {
 }
 
 
-.dt-column-header {
-  display: flex;
-}
 
 @media screen and (width <=600px) {
 
@@ -110,4 +107,7 @@ body {
     max-width: 100px;
   }
 
+  .dt-column-header {
+    display: flex;
+  }
 }
