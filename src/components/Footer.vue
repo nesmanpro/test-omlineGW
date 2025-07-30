@@ -1,7 +1,8 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class="bg-emerald-800 h-44 w-full flex flex-col gap-3 sm:grid sm:grid-cols-12 px-6 py-8 items-center">
+    <div class=" from-emerald-600 to-emerald-800
+  bg-gradient-to-tr transition-[background-image] duration-300 ease-in-out h-44 w-full flex flex-col gap-3 sm:grid sm:grid-cols-12 px-6 py-8 items-center rounded-tl-2xl rounded-tr-2xl">
         <div class="col-span-6 text-left text-4xl font-extralight text-balance text-white ">
             Lucas Roqué
         </div>
