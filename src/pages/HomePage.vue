@@ -18,9 +18,9 @@ onMounted(() => {
 <template>
 
     <main class="w-full flex flex-col gap-8 items-center justify-center py-26 ">
-        <section class="grid grid-cols-12 justify-center w-full h-min gap-y-3">
-          <div class="flex flex-col gap-5 col-span-4 text-left">
-            <h2 class="text-emerald-600 font-bold leading-10 text-6xl">
+        <section class="flex flex-col sm:grid grid-cols-12 justify-center w-full h-min gap-y-3">
+          <div class="flex flex-col gap-2 sm:gap-5 col-span-4 text-left">
+            <h2 class="text-emerald-600 font-bold text-4xl leading-6 sm:leading-10 sm:text-6xl">
                Technical assessment
             </h2>
             <h5 class="text-emerald-800 font-semibold text-xl">(Click on Test 😊)</h5>

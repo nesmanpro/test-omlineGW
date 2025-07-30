@@ -26,7 +26,7 @@ onMounted(() => {
 <template>
   
 
-  <div class="card">
+  <div class="w-full p-5 mt-20">
     <div 
     v-if="isLoading">Loading...</div>
     <div 

@@ -21,11 +21,6 @@ body {
 }
 
 
-.card {
-  padding: .5em;
-  width: 100%;
-}
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -71,4 +66,48 @@ body {
   background: rgb(255, 255, 255);
   border-radius: 5px;
   margin-left: .6rem;
+}
+
+
+.dt-column-header {
+  display: flex;
+}
+
+@media screen and (width <=600px) {
+
+  .dt-layout-row:not(.dt-layout-table) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 10px;
+    background-color: var(--bg-light-green);
+  }
+
+  .dt-layout-row {
+    padding: 1rem .7rem;
+  }
+
+  .dt-paging nav {
+    display: flex;
+    gap: .3rem;
+  }
+
+  .dt-column-header {
+    cursor: pointer;
+  }
+
+  .dt-input:not(select) {
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left: .6rem;
+  }
+
+  .dt-layout-cell tbody td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+
 }

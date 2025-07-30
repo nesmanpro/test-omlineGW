@@ -8,7 +8,7 @@ import Footer from './components/Footer.vue';
     
     <NavBar />
 
-    <main class="w-full max-w-screen flex flex-col gap-8 items-center justify-center px-8 sm:px-12 md:px-22 ">
+    <main class="w-full max-w-screen flex flex-col gap-8 items-center justify-center px-2 sm:px-12 md:px-22 ">
         <section class="flex flex-col justify-center md:justify-start w-full h-min gap-y-8">
             
         <RouterView  />
